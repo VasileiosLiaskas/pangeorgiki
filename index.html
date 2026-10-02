@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Παν Γεωργική - προϊόντα και υπηρεσίες για τη γεωργία.">
+    <meta name="theme-color" content="#1d7137">
+    <title>Παν Γεωργική</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+
+    <div class="contact-bar">
+      <div class="contact-bar__inner">
+        <a href="mailto:info@example.gr">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg>
+          <span>info@example.gr</span>
+        </a>
+        <span class="contact-bar__address">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>Διεύθυνση επιχείρησης</span>
+        </span>
+        <a href="tel:+302100000000">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 3a14 14 0 0 1-7-7l3-2-2-5Z"/></svg>
+          <span>+30 210 000 0000</span>
+        </a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <a class="site-header__brand" href="#home" aria-label="Παν Γεωργική - αρχική">
+        <img src="assets/images/logo.png" alt="Παν Γεωργική">
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Άνοιγμα μενού">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="primary-navigation" aria-label="Κύρια πλοήγηση">
+        <a href="#home" aria-current="page">Home</a>
+        <a href="#products">Προϊόντα</a>
+        <a href="#services">Υπηρεσίες</a>
+        <a href="#profile">Προφίλ</a>
+        <a href="#contact">Επικοινωνία</a>
+      </nav>
+
+      <a class="call-button" href="tel:+302100000000" aria-label="Καλέστε μας στο +30 210 000 0000">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 3a14 14 0 0 1-7-7l3-2-2-5Z"/></svg>
+      </a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <img class="hero__image" src="assets/images/hero-farm.jpg" alt="" fetchpriority="high">
+        <div class="hero__shade"></div>
+        <div class="hero__content">
+          <p class="hero__eyebrow">Ο συνεργάτης σας στη γεωργία</p>
+          <h1 id="hero-title">ΠΑΝ <span>ΓΕΩΡΓΙΚΗ</span></h1>
+          <a class="hero__button" href="#products">
+            Δείτε περισσότερα
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+          </a>
+        </div>
+        <span class="hero__scroll" aria-hidden="true">SCROLL</span>
+      </section>
+
+      <section class="intro" aria-label="Πλοήγηση στις ενότητες">
+        <article class="intro__item" id="products">
+          <span class="intro__number">01</span>
+          <h2>Προϊόντα</h2>
+          <p>Ανακαλύψτε τα προϊόντα μας.</p>
+        </article>
+        <article class="intro__item" id="services">
+          <span class="intro__number">02</span>
+          <h2>Υπηρεσίες</h2>
+          <p>Μάθετε περισσότερα για τις υπηρεσίες μας.</p>
+        </article>
+        <article class="intro__item" id="profile">
+          <span class="intro__number">03</span>
+          <h2>Προφίλ</h2>
+          <p>Γνωρίστε την Παν Γεωργική.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <p>Επικοινωνία: <a href="mailto:info@example.gr">info@example.gr</a></p>
+      <p>&copy; <span id="year"></span> Παν Γεωργική</p>
+    </footer>
+  </body>
+</html>
