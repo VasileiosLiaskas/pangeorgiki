@@ -199,7 +199,7 @@ a {
   text-transform: uppercase;
 }
 .hero h1 {
-  max-width: 12ch;
+  max-width: 16ch;
   margin: 0;
   font-size: clamp(3.25rem, 9vw, 7.5rem);
   font-weight: 800;
@@ -207,9 +207,62 @@ a {
   line-height: 0.98;
   text-wrap: balance;
 }
-.hero h1 span {
+.hero__brand-line {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 0.2em;
+  white-space: nowrap;
+}
+.hero__brand-name {
   display: block;
   color: #f4b316;
+}
+.hero__surname {
+  position: relative;
+  display: inline-flex;
+  color: #f7d87a;
+  font-size: 0.68em;
+  letter-spacing: -0.065em;
+}
+.hero__surname::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.08em;
+  left: 0;
+  height: 0.045em;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: currentColor;
+  content: "";
+  animation: surname-signature 600ms 2s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+.hero__surname-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.35em) rotate(-10deg) scale(0.75);
+  animation: surname-letter-write 520ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.hero__surname-letter:nth-child(1) {
+  animation-delay: 1.05s;
+}
+.hero__surname-letter:nth-child(2) {
+  animation-delay: 1.16s;
+}
+.hero__surname-letter:nth-child(3) {
+  animation-delay: 1.27s;
+}
+.hero__surname-letter:nth-child(4) {
+  animation-delay: 1.38s;
+}
+.hero__surname-letter:nth-child(5) {
+  animation-delay: 1.49s;
+}
+.hero__surname-letter:nth-child(6) {
+  animation-delay: 1.6s;
+}
+.hero__surname-letter:nth-child(7) {
+  animation-delay: 1.71s;
 }
 .hero__button {
   display: inline-flex;
@@ -319,6 +372,23 @@ a {
     transform: translateY(0);
   }
 }
+@keyframes surname-letter-write {
+  55% {
+    opacity: 1;
+    transform: translateY(-0.12em) rotate(2deg) scale(1.08);
+    text-shadow: 0 0 0.35em rgba(244, 179, 22, 0.75);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0) scale(1);
+    text-shadow: 0 0 0 rgba(244, 179, 22, 0);
+  }
+}
+@keyframes surname-signature {
+  to {
+    transform: scaleX(1);
+  }
+}
 @media (max-width: 900px) {
   .site-header {
     grid-template-columns: minmax(9rem, 1fr) 3rem 4rem;
@@ -423,7 +493,7 @@ a {
     font-size: 0.75rem;
   }
   .hero h1 {
-    font-size: clamp(3rem, 15vw, 5.25rem);
+    font-size: clamp(2.25rem, 10vw, 4.5rem);
   }
   .hero__button {
     margin-top: 2rem;
@@ -443,6 +513,15 @@ a {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .hero__surname-letter {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .hero__surname::after {
+    transform: scaleX(1);
+    animation: none;
+  }
   *,
   *::before,
   *::after {

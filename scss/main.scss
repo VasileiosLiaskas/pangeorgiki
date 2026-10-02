@@ -230,7 +230,7 @@ a {
   }
 
   h1 {
-    max-width: 12ch;
+    max-width: 16ch;
     margin: 0;
     font-size: clamp(3.25rem, 9vw, 7.5rem);
     font-weight: 800;
@@ -239,9 +239,51 @@ a {
     text-wrap: balance;
   }
 
-  h1 span {
+  &__brand-line {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0 0.2em;
+    white-space: nowrap;
+  }
+
+  &__brand-name {
     display: block;
     color: $gold;
+  }
+
+  &__surname {
+    position: relative;
+    display: inline-flex;
+    color: #f7d87a;
+    font-size: 0.68em;
+    letter-spacing: -0.065em;
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: -0.08em;
+      left: 0;
+      height: 0.045em;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: currentColor;
+      content: "";
+      animation: surname-signature 600ms 2s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    }
+  }
+
+  &__surname-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.35em) rotate(-10deg) scale(0.75);
+    animation: surname-letter-write 520ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+
+    @for $index from 1 through 7 {
+      &:nth-child(#{$index}) {
+        animation-delay: 1.05s + ($index - 1) * 110ms;
+      }
+    }
   }
 
   &__button {
@@ -366,6 +408,26 @@ a {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes surname-letter-write {
+  55% {
+    opacity: 1;
+    transform: translateY(-0.12em) rotate(2deg) scale(1.08);
+    text-shadow: 0 0 0.35em rgba($gold, 0.75);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0) scale(1);
+    text-shadow: 0 0 0 rgba($gold, 0);
+  }
+}
+
+@keyframes surname-signature {
+  to {
+    transform: scaleX(1);
   }
 }
 
@@ -497,7 +559,7 @@ a {
     }
 
     h1 {
-      font-size: clamp(3rem, 15vw, 5.25rem);
+      font-size: clamp(2.25rem, 10vw, 4.5rem);
     }
 
     &__button {
@@ -523,6 +585,17 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero__surname-letter {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .hero__surname::after {
+    transform: scaleX(1);
+    animation: none;
+  }
+
   *,
   *::before,
   *::after {
